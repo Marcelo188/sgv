@@ -34,6 +34,7 @@ public class Venda implements Serializable{
     @OneToMany (mappedBy = "venda", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Item> listaItens = new ArrayList();
     private Date dataVenda = new Date();
+    private Date dataFecha = new Date();
 
     public String getDataVendaFormatada() {
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
@@ -56,6 +57,27 @@ public class Venda implements Serializable{
         this.dataVenda = data;
     }
     
+    public String getDataFechaFormatada() {
+        SimpleDateFormat formate = new SimpleDateFormat("dd/MM/yyyy");
+        return formate.format(dataFecha);
+    }
+    
+    public String getDataFecha() {
+        SimpleDateFormat formate = new SimpleDateFormat("yyyy-MM-dd");
+        return formate.format(dataFecha);
+    }
+    
+    public void setDataFecha(String dataFecha) {
+        SimpleDateFormat formate = new SimpleDateFormat("yyyy-MM-dd"); 
+        Date dataf = null;
+        try {
+            dataf = formate.parse(dataFecha);
+        } catch (ParseException ex) {
+            Logger.getLogger(Venda.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.dataFecha = dataf;
+    }
+    
     public void adicionarItem(Item item){
         listaItens.add(item);
     }
@@ -63,13 +85,4 @@ public class Venda implements Serializable{
     public void removerItem (Item item){
         listaItens.remove(item);
     }
-    
-    public float calcularTotal(){
-        float soma = 0;
-        for (Item i : listaItens){
-            soma += i.getProduto().getPreco() * i.getQuantidade();
-        }
-        return soma;
-    }
-    
 }

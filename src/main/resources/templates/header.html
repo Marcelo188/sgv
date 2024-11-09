@@ -19,10 +19,9 @@
                             Gerenciar
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="/pessoas-juridicas">Pessoas Juridicas</a>
-                            <a class="dropdown-item" href="/pessoas-fisicas">Pessoas Físicas</a>
-                            <a class="dropdown-item" href="/produtos">Produtos</a>
-                            <a class="dropdown-item" href="/vendas">Vendas</a>
+                            <a class="dropdown-item" href="/funcionarios">Funcionarios</a>
+                            <a class="dropdown-item" href="/pessoas-juridicas">Pessoas Juridicas & Mei</a>
+                            <a class="dropdown-item" href="/vendas">Pedidos</a>
                          </div>
                     </li>
                     <div sec:authorize="hasRole('ADMIN')">
@@ -32,6 +31,8 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="/usuarios">Usuarios</a>
+                                <a class="dropdown-item" href="/produtos">Estoque</a>
+                                <a class="dropdown-item" href="/empresas">Empresas</a>
                              </div>
                         </li>
                     </div>

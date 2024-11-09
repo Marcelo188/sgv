@@ -17,5 +17,7 @@ import lombok.Setter;
 public class PessoaJuridica extends Pessoa{
     @Size(min=1,message = "O CNPJ precisa ser válido.")
     private String cnpj;
-
+    
+    @Size(min=1,message = "O Telefone precisa ser válido.")
+    private String tel;
 }

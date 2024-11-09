@@ -2,6 +2,7 @@ package br.com.sgv.controller;
 
 import br.com.sgv.model.Item;
 import br.com.sgv.model.Venda;
+import br.com.sgv.repository.FuncionariosRepository;
 import br.com.sgv.repository.ProdutoRepository;
 import br.com.sgv.repository.VendaRepository;
 import jakarta.validation.Valid;
@@ -29,6 +30,8 @@ public class VendaController {
     private VendaRepository vendaRepository;
     @Autowired
     private ProdutoRepository produtoRepository;
+    @Autowired
+    private FuncionariosRepository funcionariosRepository;
     private Venda venda;
 
     @GetMapping("/vendas")
@@ -63,6 +66,7 @@ public class VendaController {
             return "editar_venda";
         }
         this.venda.setDataVenda(venda.getDataVenda());
+        this.venda.setDataFecha(venda.getDataFecha());
         vendaRepository.save(this.venda);
         return "redirect:/vendas";
     }

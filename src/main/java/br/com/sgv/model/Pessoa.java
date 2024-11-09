@@ -10,7 +10,6 @@ import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
-
 /**
  *
  * @author Pablo Rangel <pablo.rangel@gmail.com>
@@ -20,18 +19,21 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Inheritance (strategy=InheritanceType.JOINED)
-public abstract class Pessoa{
-    
+@Inheritance(strategy = InheritanceType.JOINED) // Define a herança JOINED, onde Pessoa vai ser uma tabela e as classes filhas terão suas próprias tabelas.
+public abstract class Pessoa {
+
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private long id;
-    @Size(min=1,message = "O nome precisa ser válido.")
+
+    @Size(min = 1, message = "O nome precisa ser válido.")
     private String nome;
+    
+    @Size(min=1,message = "O Celular precisa ser válido.")
+    private String cel;
 
     @Override
-    public String toString(){
-        return nome;
+    public String toString() {
+        return nome + cel;
     }
-    
 }

@@ -16,24 +16,28 @@
     <body>
         <div th:replace="header :: header">...</div>
         <div class="container" style="margin-top: 50px">
-            <h2 class="alert alert-dark">Editar Venda</h2>
+            <h2 class="alert alert-dark">Fazer Pedido</h2>
 	    <div class="row" >
-                <div class="col">
+                <div class="co2">
                     <form action="#" th:action="@{/vendas}" th:object="${venda}" method="post">
                         <input type="hidden" th:field="*{id}" id="id">
-                        <h3> Dados da Venda:</h3>
+                        <h3> Dados do Pedido:</h3>
                         <hr>
                         <div class="row">
                             <div class="col-md-12 mb-3">
-                                <label for="Data da Venda">Data da Venda</label>
+                                <label for="Pedido Aberto:">Pedido Aberto:</label>
                                 <input type="date" th:field="*{dataVenda}" class="form-control">
-                            </div>  
+                            </div>
                             <div class="col-md-12 mb-3">
+                                <label for="Pedido Fecha">Pedido Fecha:</label>
+                                <input type="date" th:field="*{dataFecha}" class="form-control">
+                            </div>
+                            <div class="co1-md-12 mb-3">
                                 <table id="TabelaItens" class="table table-striped">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Data</th>
+                                            <th>Ativos</th>
                                             <th>Total</th>
                                             <th>Excluir</th>
                                         </tr>
@@ -54,7 +58,7 @@
                         <a href="/vendas" class="btn btn-secondary btn-block" >Fechar</a>
                     </form>
                 </div>
-                <div class="col">
+                <div class="co1">
                     <form th:action="@{/vendas/itens}" th:object="${item}" method="post">
                         <h3> Adicionar novos produtos</h3>
                         <hr>
@@ -62,7 +66,7 @@
                             <div class="col">
                                 <label for="quantidade">Produtos</label>
                                 <select class="form-control" id="comboProdutos" th:field="*{produto}">
-                                    <option value="0">Selecione o Produto</option>
+                                    <option value="0">Selecione o Produto para Adicionar ao Pedido</option>
                                     <option th:each="p : ${listaProdutos}" th:value="${p.id}" th:text="${p.nome}" ></option>
                                 </select>    
                             </div>    
