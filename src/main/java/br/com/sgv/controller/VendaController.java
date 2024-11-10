@@ -65,6 +65,8 @@ public class VendaController {
         if (result.hasErrors()) {
             return "editar_venda";
         }
+        this.venda.setEndereco(venda.getEndereco());
+        this.venda.setResponsavel(venda.getResponsavel());
         this.venda.setDataVenda(venda.getDataVenda());
         this.venda.setDataFecha(venda.getDataFecha());
         vendaRepository.save(this.venda);

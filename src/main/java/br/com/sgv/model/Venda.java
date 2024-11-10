@@ -35,6 +35,24 @@ public class Venda implements Serializable{
     private List<Item> listaItens = new ArrayList();
     private Date dataVenda = new Date();
     private Date dataFecha = new Date();
+    private String endereco;
+    private String responsavel;
+    
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+    
+    public String getResponsavel() {
+        return responsavel;
+    }
+
+    public void setResponsavel(String responsavel) {
+        this.responsavel = responsavel;
+    }
 
     public String getDataVendaFormatada() {
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
